@@ -1,0 +1,33 @@
+.widget {
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.widget-contents {
+  padding: 0.5em;
+  margin: 0.2em;
+  border: 2px solid #000;
+}
+
+.purple {
+  background-color: #400090;
+  color: #fff;
+}
+
+.orange {
+  background-color: #F79F40;
+  color: #000;
+}
+
+.red {
+  background-color: #c75454;
+  color: #fff;
+}
+
+.green {
+  background-color: #4CD94C;
+  color: #000;
+}
