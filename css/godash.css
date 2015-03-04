@@ -9,7 +9,6 @@
 .widget-contents {
   padding: 0.5em;
   margin: 0.2em;
-  border: 2px solid #000;
 }
 
 .purple {
@@ -18,16 +17,16 @@
 }
 
 .orange {
-  background-color: #F79F40;
+  background-color: #e67e22;
   color: #000;
 }
 
 .red {
-  background-color: #c75454;
+  background-color: #e74c3c;
   color: #fff;
 }
 
 .green {
-  background-color: #4CD94C;
+  background-color: #2ecc71;
   color: #000;
 }

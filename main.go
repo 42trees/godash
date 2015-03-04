@@ -9,9 +9,13 @@ import (
 	"time"
 )
 
-type Woo struct {
-	Id   int
-	Name string
+type Widget struct {
+	Id       int
+	Title    string
+	Subtitle string
+	Content  string
+	Color    string
+	Time     string
 }
 
 func main() {
@@ -52,11 +56,56 @@ func woo(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Cache-Control", "no-cache")
 	w.Header().Set("Connection", "keep-alive")
 
-	var woo Woo
-	woo.Id = 5
-	woo.Name = "YEAH"
+	const layout = "Jan 2, 2006 at 3:04pm (MST)"
+	t := time.Now()
+	now := t.Format(layout)
 
-	response, _ := json.Marshal(woo)
+	var wd Widget
+	wd.Id = 1
+	wd.Title = "y7.mediasuite.proc"
+	wd.Subtitle = "OK"
+	wd.Content = "Everything is fine"
+	wd.Color = "green"
+	wd.Time = now
+	var widgets []Widget
+
+	widgets = append(widgets, wd)
+	wd.Id = 2
+	wd.Subtitle = "OH NO. STUFF IS BROKEN"
+	wd.Content = "Everything is definitely not fine"
+	wd.Color = "red"
+	wd.Time = now
+	widgets = append(widgets, wd)
+
+	wd.Id = 3
+	wd.Subtitle = "OH NO. STUFF IS BROKEN"
+	wd.Content = "Everything is definitely not fine"
+	wd.Color = "red"
+	wd.Time = now
+	widgets = append(widgets, wd)
+
+	wd.Id = 4
+	wd.Subtitle = "OH NO. STUFF IS AWESOME"
+	wd.Content = "Everything is definitely not fine"
+	wd.Color = "green"
+	wd.Time = now
+	widgets = append(widgets, wd)
+
+	wd.Id = 5
+	wd.Subtitle = "OH NO. STUFF IS AWESOME"
+	wd.Content = "Everything is definitely not fine"
+	wd.Color = "orange"
+	wd.Time = now
+	widgets = append(widgets, wd)
+
+	wd.Id = 6
+	wd.Subtitle = "PUPPIES"
+	wd.Content = "Everything is AWESOME"
+	wd.Color = "purple"
+	wd.Time = now
+	widgets = append(widgets, wd)
+
+	response, _ := json.Marshal(widgets)
 
 	//
 	for {
@@ -67,7 +116,7 @@ func woo(w http.ResponseWriter, req *http.Request) {
 		// Flush the response.  This is only possible if
 		// the repsonse supports streaming.
 		f.Flush()
-		time.Sleep(30 * time.Second)
+		time.Sleep(5 * time.Second)
 	}
 
 	//	fmt.Fprintf(w, "%s", response)
